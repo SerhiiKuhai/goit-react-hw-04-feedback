@@ -1,26 +1,23 @@
-import { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, GridStatistics } from './Statistics.styled';
 
-export class Statistics extends Component {
-  render() {
-    const { good, neutral, bad, total, positivePercentage } = this.props;
-    return (
-      <>
-        <Grid>
-          <GridStatistics>Good:{good}</GridStatistics>
-          <GridStatistics>Neutral:{neutral}</GridStatistics>
-          <GridStatistics>Bad:{bad}</GridStatistics>
-          <GridStatistics>Total: {total}</GridStatistics>
-          {good !== 0 && (
-            <GridStatistics>
-              Positive feedback: {positivePercentage}%
-            </GridStatistics>
-          )}
-        </Grid>
-      </>
-    );
-  }
+export function Statistics({ good, neutral, bad, total, positivePercentage }) {
+  return (
+    <>
+      <Grid>
+        <GridStatistics>Good:{good}</GridStatistics>
+        <GridStatistics>Neutral:{neutral}</GridStatistics>
+        <GridStatistics>Bad:{bad}</GridStatistics>
+        <GridStatistics>Total: {total}</GridStatistics>
+        {good !== 0 && (
+          <GridStatistics>
+            Positive feedback: {positivePercentage}%
+          </GridStatistics>
+        )}
+      </Grid>
+    </>
+  );
 }
 
 Statistics.propTypes = {
